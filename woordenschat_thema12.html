@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Woordenschat Thema 12 – Op de basisschool – LINK A0–A2</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0f4ff;
+    --blue: #2d3a8c;
+    --blue2: #4338ca;
+    --accent: #f5a623;
+    --pink: #e84393;
+    --ink: #1a1a2e;
+    --muted: #6b7280;
+    --ok: #059669; --ok-bg: #d1fae5;
+    --bad: #dc2626; --bad-bg: #fee2e2;
+    --shadow: rgba(45,58,140,0.16);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif; color: var(--ink); background: var(--bg);
+    background-image: radial-gradient(circle at 20% 20%, rgba(79,70,229,0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, rgba(232,67,147,0.07) 0%, transparent 50%);
+    min-height: 100vh; padding: 4rem 1rem 3rem;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  .home { position: fixed; top: 1rem; left: 1rem; z-index: 9999; display: inline-flex; align-items: center; gap: .4rem; background: white; color: var(--blue); border: 2px solid var(--blue); border-radius: 50px; padding: .4rem 1rem; font-size: .82rem; font-weight: 700; text-decoration: none; box-shadow: 0 2px 8px rgba(45,58,140,.15); }
+
+  .header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+  .avatar-box { width: 72px; height: 72px; flex-shrink: 0; border-radius: 50%; border: 3px solid var(--accent); box-shadow: 0 4px 12px var(--shadow); background: white; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; overflow: hidden; }
+  .avatar-box img { width: 100%; height: 100%; object-fit: cover; }
+  .header h1 { font-size: 1.45rem; font-weight: 900; color: var(--blue); line-height: 1.2; }
+  .header p { font-size: .85rem; color: var(--muted); margin-top: .2rem; }
+
+  .uitleg { background: white; border-left: 5px solid var(--accent); border-radius: 12px; padding: .8rem 1rem; font-size: 1.05rem; line-height: 1.7; box-shadow: 0 2px 8px var(--shadow); margin-bottom: 1.2rem; font-weight: 700; }
+  .uitleg b { color: var(--blue); }
+
+  .row-label { font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: .2rem 0 .4rem; }
+  .pills { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+  .pill { border: 2px solid var(--blue); background: white; color: var(--blue); border-radius: 20px; padding: .3rem .85rem; font-family: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; transition: all .15s; }
+  .pill.active { background: var(--blue); color: white; }
+  .pill:hover { transform: scale(1.04); }
+
+  .tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: .45rem; margin-bottom: 1.2rem; }
+  .tab { background: white; border: 2px solid transparent; border-radius: 14px; padding: .6rem .3rem; font-family: inherit; cursor: pointer; box-shadow: 0 2px 8px var(--shadow); text-align: center; transition: all .15s; color: var(--ink); }
+  .tab .ic { font-size: 1.5rem; display: block; line-height: 1.2; }
+  .tab .lb { font-size: .75rem; font-weight: 800; }
+  .tab.active { border-color: var(--accent); background: #fff8eb; }
+  .tab:hover { transform: translateY(-2px); }
+  @media (max-width: 560px) { .tabs { grid-template-columns: repeat(3, 1fr); } }
+
+  .panel { background: white; border-radius: 20px; padding: 1.5rem 1.3rem; box-shadow: 0 8px 32px var(--shadow); }
+  .panel h2 { font-size: 1.1rem; font-weight: 900; color: var(--blue); margin-bottom: .3rem; }
+  .panel .how { font-size: 1rem; color: var(--ink); font-weight: 700; margin-bottom: 1rem; }
+
+  .progress { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); font-weight: 700; margin-bottom: .5rem; }
+  .progress span { color: var(--blue); }
+  .bar { background: rgba(45,58,140,.1); border-radius: 10px; height: 6px; overflow: hidden; margin-bottom: 1.2rem; }
+  .bar div { height: 100%; background: linear-gradient(90deg, var(--blue), var(--pink)); border-radius: 10px; transition: width .3s; }
+
+  .big-emoji { font-size: 4.5rem; text-align: center; line-height: 1.1; min-height: 4.8rem; margin-bottom: 1rem; }
+  .big-word { font-family: 'Lora', serif; font-size: clamp(1.6rem, 6vw, 2.3rem); font-weight: 600; text-align: center; color: var(--blue); margin: .3rem 0 1.2rem; }
+  .sentence { font-family: 'Lora', serif; font-size: clamp(1.25rem, 5vw, 1.6rem); text-align: center; line-height: 1.5; margin: .5rem 0 1.3rem; }
+  .gap { display: inline-block; min-width: 3.5em; border-bottom: 3px solid var(--accent); color: var(--blue); font-weight: 600; }
+
+  .listen-row { display: flex; justify-content: center; gap: .6rem; margin: .5rem 0 1.3rem; flex-wrap: wrap; }
+  .speak { background: var(--blue); color: white; border: none; border-radius: 50px; padding: .8rem 1.6rem; font-family: inherit; font-size: 1.05rem; font-weight: 800; cursor: pointer; box-shadow: 0 3px 10px var(--shadow); }
+  .speak.slow { background: var(--accent); color: var(--ink); }
+  .speak.small { padding: .45rem 1rem; font-size: .9rem; }
+
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+  .opts.three { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 480px) { .opts.three { grid-template-columns: 1fr 1fr; } }
+  .opt { background: #f8faff; border: 2px solid #dbe2ff; border-radius: 14px; padding: .8rem .6rem; font-family: inherit; font-size: 1.05rem; font-weight: 700; color: var(--ink); cursor: pointer; transition: all .12s; display: flex; align-items: center; justify-content: center; gap: .45rem; min-height: 3.3rem; text-align: center; }
+  .opt .oe { font-size: 1.5rem; }
+  .opt:hover:not(:disabled) { border-color: var(--blue); transform: translateY(-2px); }
+  .opt.big { font-size: 1.6rem; padding: 1rem; font-family: 'Lora', serif; }
+  .opt.ok { background: var(--ok-bg); border-color: var(--ok); color: #065f46; }
+  .opt.bad { background: var(--bad-bg); border-color: var(--bad); color: #991b1b; }
+  .opt:disabled { cursor: default; }
+
+  .fb { min-height: 1.6rem; text-align: center; font-weight: 800; margin-top: 1rem; font-size: 1.05rem; }
+  .fb.ok { color: var(--ok); } .fb.bad { color: var(--bad); }
+  .tip { text-align: center; font-size: .9rem; color: var(--muted); margin-top: .3rem; font-style: italic; }
+  .next-row { text-align: center; margin-top: 1rem; }
+  .btn { background: var(--blue); color: white; border: none; border-radius: 50px; padding: .65rem 1.5rem; font-family: inherit; font-size: .95rem; font-weight: 800; cursor: pointer; box-shadow: 0 3px 10px var(--shadow); }
+  .btn.alt { background: var(--bad-bg); color: #991b1b; }
+  .btn.start { font-size: 1.1rem; padding: .85rem 2rem; background: var(--accent); color: var(--ink); }
+
+  .warn { background: #fef3c7; color: #92400e; border-radius: 10px; padding: .55rem .8rem; font-size: .82rem; margin-bottom: 1rem; display: none; }
+
+  /* woordenlijst */
+  .wl-head { font-size: .8rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: var(--pink); margin: 1.2rem 0 .5rem; }
+  .wl-head:first-of-type { margin-top: 0; }
+  .wl { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .5rem; }
+  .wcard { border: 1px solid #e3e8ff; border-radius: 12px; padding: .5rem .6rem; display: flex; align-items: center; gap: .5rem; cursor: pointer; background: #fbfcff; transition: all .12s; }
+  .wcard.has-zin { grid-column: span 2; }
+  @media (max-width: 380px) { .wcard.has-zin { grid-column: span 1; } }
+  .wcard:hover { border-color: var(--blue); background: white; }
+  .wcard .we { font-size: 1.4rem; width: 1.8rem; text-align: center; flex-shrink: 0; }
+  .wcard .ww { font-weight: 700; font-size: .95rem; line-height: 1.25; min-width: 0; overflow-wrap: anywhere; }
+  .wcard .ww small { color: var(--muted); font-weight: 600; }
+  .wcard .wz { display: block; font-family: 'Lora', serif; font-weight: 400; font-size: .9rem; color: var(--ink); margin-top: .1rem; }
+  .wcard .wz b { color: var(--blue); }
+  .wcard .sp { margin-left: auto; font-size: .9rem; opacity: .5; }
+
+  .result { text-align: center; padding: 1rem 0; }
+  .result .score { font-size: 3.2rem; font-weight: 900; color: var(--blue); }
+  .result .msg { color: var(--muted); font-style: italic; margin: .4rem 0 1.3rem; }
+  .result .btns { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  .result .avatar-box { margin: 0 auto 1rem; width: 86px; height: 86px; }
+</style>
+</head>
+<body>
+<a class="home" href="https://rachelbrigitta71-hoorn.github.io/Link/overzicht_link.html">← Hoofdmenu</a>
+
+<div class="wrap">
+  <div class="header">
+    <div class="avatar-box av">🏫</div>
+    <div>
+      <h1>Thema 12 · Op de basisschool</h1>
+      <p>LINK A0–A2 · woorden · 100 woorden</p>
+    </div>
+  </div>
+
+  <div class="uitleg">
+    <b>Zo werkt het:</b> kies een taak. Kies dan een oefening.<br>Begin met <b>📖 Woorden</b>: klik op een woord en luister.
+  </div>
+
+  <div class="row-label">Taak</div>
+  <div class="pills" id="taken"></div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div class="panel" id="panel"></div>
+</div>
+
+<script>
+/* ---------- WOORDEN (LINK A0–A2, Thema 12 · Op de basisschool) ----------
+   Alleen woorden uit de woordenlijsten van LINK (Boom), thema 12, taak 1–4.
+   [woord, lidwoord, emoji, taak, sorteergroep, soort, zin, foute keuzes bij de zin]
+   sorteergroep: v Vakken · m Mensen op school · l Lichaam · s Spullen voor school · g Heel leuk!
+   soort: alleen intern, zodat foute keuzes bij een plaatje uit een andere groep komen
+   zin: mini-zin met het woord tussen ** **; wordt voorgelezen. Bij een zin kiest de cursist het woord in de zin. */
+const RAW = [
+  ['aardrijkskunde','de','🌍',1,'v','vak'],
+  ['anders','','',1,'','klein','Deze school is niet hetzelfde. Hij is **anders**.',['hetzelfde','regelmatig','verplicht']],
+  ['bedrag','het','',1,'','klein','Het **bedrag** is 20 euro.',['vak','uniform','spelletje']],
+  ['biologie','de','🌱',1,'v','vak'],
+  ['bouwen','','🏗️',1,'','doe'],
+  ['ding','het','',1,'','klein','Ik heb veel **dingen** in mijn tas.',['bedrag','prestatie','ontwikkeling']],
+  ['geschiedenis','de','📜',1,'v','vak'],
+  ['groep','de','',1,'','klein','Mijn dochter zit in **groep** 3.',['vak','bedrag','prestatie']],
+  ['gymnastiek','de','🤸',1,'v','vak'],
+  ['hetzelfde','','',1,'','klein','Wij hebben **hetzelfde** T-shirt aan.',['verplicht','regelmatig','verschillend']],
+  ['knutselen','','✂️',1,'','doe'],
+  ['langskomen','','',1,'','doe','Mag ik morgen even **langskomen**?',['rennen','bouwen','knutselen']],
+  ['meester','de','👨‍🏫',1,'m','mens'],
+  ['ontwikkeling','de','',1,'','klein','De school kijkt naar de **ontwikkeling** van je kind.',['bedrag','uniform','schoolreisje']],
+  ['prestatie','de','',1,'','klein','Een 10 voor rekenen: wat een **prestatie**!',['bedrag','uniform','spelletje']],
+  ['regelmatig','','',1,'','klein','Ik bel **regelmatig** met de school.',['verplicht','hetzelfde','verschillend']],
+  ['rekenen','het','➕',1,'v','vak'],
+  ['religie','de','',1,'v','klein','Christendom en islam: dat is **religie**.',['biologie','aardrijkskunde','gymnastiek']],
+  ['rennen','','🏃',1,'','doe'],
+  ['schoolreisje','het','',1,'','klein','Met de klas gaan we op **schoolreisje** naar de dierentuin.',['uniform','spelletje','bedrag']],
+  ['spelletje','het','🎲',1,'','ding'],
+  ['tekenen','het','✏️',1,'v','vak'],
+  ['uniform','het','',1,'','klein','Op deze school draag je een **uniform**.',['bedrag','vak','prestatie']],
+  ['vak','het','',1,'','klein','Rekenen is mijn favoriete **vak**.',['groep','bedrag','uniform']],
+  ['verplicht','','',1,'','klein','Naar school gaan is **verplicht**: je moet.',['regelmatig','hetzelfde','anders']],
+  ['verschillend','','',1,'','klein','De kinderen zijn **verschillend**: groot en klein.',['verplicht','regelmatig','hetzelfde']],
+
+  ['agenda','de','📒',2,'s','spullen'],
+  ['allemaal','','',2,'','klein','Jullie zijn **allemaal** welkom.',['eens','vorig','beter']],
+  ['bah','','',2,'','klein','**Bah**, wat vies!',['eens','vorig','beter']],
+  ['beter','','',2,'','klein','Ik was ziek, maar nu voel ik me **beter**.',['allemaal','vorig','eens']],
+  ['broodtrommel','de','🍱',2,'s','spullen'],
+  ['dorst','de','',2,'','klein','Ik wil water. Ik heb **dorst**.',['honger','keel','nek']],
+  ['douchen','','🚿',2,'','doe'],
+  ['eens (even)','','',2,'','klein','Kom **eens** hier!',['allemaal','vorig','bah']],
+  ['etui','het','',2,'s','klein','Mijn pennen zitten in mijn **etui**.',['wekker','honing','nek']],
+  ['gezicht','het','🙂',2,'l','lijf'],
+  ['haar','het','💇',2,'l','lijf'],
+  ['honger','de','',2,'','klein','Ik wil eten. Ik heb **honger**.',['dorst','keel','nek']],
+  ['honing','de','🍯',2,'','eten'],
+  ['keel','de','',2,'l','klein','Mijn **keel** doet pijn. Ik kan niet slikken.',['agenda','wekker','honing']],
+  ['nek','de','',2,'l','klein','Ik heb pijn in mijn **nek**.',['agenda','wekker','honing']],
+  ['opschieten','','',2,'','doe','We moeten **opschieten**: de school begint.',['terugkomen','regelen','voelen']],
+  ['opstaan','','',2,'','doe','Ik **sta** om 7 uur **op**.',['pak','regel','voel']],
+  ['pakken','','',2,'','doe','**Pak** je rugzak, we gaan!',['regel','voel','douche']],
+  ['regelen','','',2,'','doe','Ik **regel** een oppas voor morgen.',['voel','douche','sta op']],
+  ['rugzak','de','🎒',2,'s','spullen'],
+  ['schat (lief woord)','','',2,'','klein','Dag **schat**, tot vanmiddag!',['bah','eens','vorig']],
+  ['terugkomen','','',2,'','doe','Hoe laat **kom** je **terug** van school?',['pak','sta','regel']],
+  ['voelen','','',2,'','doe','Ik **voel** me niet lekker.',['pak','regel','douche']],
+  ['vorig','','',2,'','klein','**Vorig** jaar zat mijn zoon in groep 2.',['allemaal','eens','beter']],
+  ['wekker','de','⏰',2,'','ding'],
+
+  ['administratie','de','',3,'','klein','De **administratie** van de school regelt de papieren.',['kleuter','traktatie','gids']],
+  ['afhalen','','',3,'','doe','Ik **haal** mijn kind om 3 uur **af**.',['trakteer','geef','lees']],
+  ['begin','het','',3,'','klein','In het **begin** van het schooljaar zijn er veel nieuwe kinderen.',['belang','versie','kosten']],
+  ['belang','het','',3,'','klein','Het is in het **belang** van je kind.',['versie','stage','gids']],
+  ['gids','de','',3,'','klein','In de **gids** van de school staat alle informatie.',['peuter','stage','traktatie']],
+  ['kleuter','de','',3,'m','klein','Een kind van 4 of 5 jaar is een **kleuter**.',['peuter','leerkracht','stagiaire']],
+  ['kosten','de','💶',3,'','geld'],
+  ['leerkracht','de','',3,'m','klein','De **leerkracht** geeft les aan de kinderen.',['leerling','peuter','gids']],
+  ['leerling','de','',3,'m','klein','Mijn zoon is een **leerling** van groep 5.',['leerkracht','peuter','gids']],
+  ['nieuwsbrief','de','📰',3,'','ding'],
+  ['opgeven','','',3,'','doe','Ik **geef** mijn kind **op** voor de sportdag.',['trakteer','lees','blijf']],
+  ['opleiding','de','🎓',3,'','ding'],
+  ['opvang','de','',3,'','klein','Na school gaat mijn kind naar de **opvang**.',['versie','administratie','gids']],
+  ['overblijven','','',3,'','doe','Mijn kind eet op school: het mag **overblijven**.',['trakteren','voorlezen','afhalen']],
+  ['papieren (van papier)','','',3,'','klein','Ik koop een **papieren** tas.',['tussenschools','verplicht','regelmatig']],
+  ['peuter','de','',3,'m','klein','Een kind van 2 of 3 jaar is een **peuter**.',['kleuter','leerkracht','stagiaire']],
+  ['schooljaar','het','',3,'','klein','Het **schooljaar** begint in september.',['belang','versie','stage']],
+  ['stage','de','',3,'','klein','Ik doe **stage** bij een basisschool.',['versie','gids','traktatie']],
+  ['stagiaire','de','',3,'m','klein','De **stagiaire** leert het werk in de klas.',['gids','versie','traktatie']],
+  ['traktatie','de','🧁',3,'','eten'],
+  ['trakteren','','',3,'','doe','Mijn zoon is jarig. Hij **trakteert** in de klas.',['haalt af','geeft op','blijft over']],
+  ['tussenschools','','',3,'','klein','De **tussenschoolse** opvang is tussen de middag.',['papieren','trots','enig']],
+  ['versie','de','',3,'','klein','Er is een nieuwe **versie** van de gids.',['stage','peuter','opvang']],
+  ['voorlezen','','📚',3,'','doe'],
+  ['zich inschrijven','','',3,'','doe','Ik **schrijf** mijn kind **in** bij de school.',['trakteer','haal','lees']],
+
+  ['activiteit','de','',4,'','klein','Op de sportdag zijn er veel **activiteiten**.',['sfeer','directeur','verzorger']],
+  ['afscheid','het','',4,'','klein','De juf gaat weg. We nemen **afscheid**.',['moeite','sfeer','sportdag']],
+  ['daarom','','',4,'','klein','Ik ben ziek. **Daarom** blijf ik thuis.',['dolgraag','enig','langdurig']],
+  ['directeur','de','',4,'m','klein','De **directeur** is de baas van de school.',['verzorger','sfeer','sportdag']],
+  ['dolgraag','','',4,'','klein','Wil je helpen? Ja, **dolgraag**!',['daarom','langdurig','trots']],
+  ['enig (maar één)','','',4,'','klein','Ik heb geen broer of zus: ik ben **enig** kind.',['trots','nuttig','langdurig']],
+  ['fantastisch','','🤩',4,'g','leuk'],
+  ['geweldig','','',4,'g','klein','Het schoolreisje was **geweldig**!',['nuttig','langdurig','enig']],
+  ['hulpouder','de','',4,'m','klein','Een **hulpouder** helpt de juf op school.',['sfeer','sportdag','moeite']],
+  ['kaartje','het','💌',4,'','ding'],
+  ['klassenouder','de','',4,'m','klein','De **klassenouder** helpt de juf met de klas.',['sfeer','sportdag','uitstapje']],
+  ['langdurig','','',4,'','klein','Hij is **langdurig** ziek: al een half jaar.',['nuttig','trots','geweldig']],
+  ['meegeven','','',4,'','doe','Ik **geef** mijn kind een broodje **mee**.',['organiseer','timmer','verf']],
+  ['moeite','de','',4,'','klein','Dank je wel voor de **moeite**!',['sfeer','sportdag','directeur']],
+  ['nuttig','','',4,'','klein','Leren is **nuttig**: je hebt het later nodig.',['langdurig','trots','enig']],
+  ['ongelooflijk','','',4,'g','klein','Hij is 100 jaar? **Ongelooflijk**!',['nuttig','daarom','dolgraag']],
+  ['organiseren','','',4,'','doe','De school **organiseert** een sportdag.',['timmert','verft','geeft mee']],
+  ['sfeer','de','',4,'','klein','In de klas is een goede **sfeer**.',['moeite','sportdag','directeur']],
+  ['sportdag','de','🏅',4,'','ding'],
+  ['timmeren','','🔨',4,'','doe'],
+  ['trots','','',4,'','klein','Mijn kind heeft een 10. Ik ben **trots**!',['langdurig','nuttig','enig']],
+  ['uitstapje','het','',4,'','klein','Met de klas maken we een **uitstapje** naar het museum.',['afscheid','sfeer','moeite']],
+  ['verven','','🎨',4,'','doe'],
+  ['verzorger','de','',4,'','klein','Ouders en **verzorgers** zijn welkom.',['sfeer','moeite','sportdag']]
+];
+const W = RAW.map(r => ({ w: r[0], a: r[1], e: r[2], t: r[3], c: r[4], g: r[5], z: r[6] || '', d: r[7] || [] }));
+
+const CATS = { v: '📚 Vakken', m: '👩‍🏫 Mensen op school', l: '🧍 Lichaam', s: '🎒 Spullen voor school', g: '🤩 Heel leuk!' };
+
+const TAKEN = [['all','Alles'],[1,'Taak 1'],[2,'Taak 2'],[3,'Taak 3'],[4,'Taak 4']];
+const TITELS = { 1: 'Hoe gaat het op de basisschool?', 2: 'Mijn dochter heeft koorts', 3: 'Kan mijn kind overblijven?', 4: 'We zoeken hulpouders' };
+const TABS = [
+  ['woorden','📖','Woorden'], ['luister','🎧','Luisteren'], ['dehet','🔤','De of het'],
+  ['sorteer','🧺','Sorteren'], ['kies','✏️','Kies']
+];
+
+/* ---------- HULP ---------- */
+// Fisher-Yates
+function shuffle(a) {
+  const arr = [...a];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+// antwoordopties door elkaar, zodat het goede antwoord niet steeds bij A staat
+function shuffleOpts(opts) { return shuffle(opts); }
+function full(x) { return (x.a ? x.a + ' ' : '') + x.w; }
+function spoken(s) { return s.replace(/\s*\([^)]*\)/g, ''); }
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+function zinPlain(z) { return z.replace(/\*\*/g, ''); }
+function zinHtml(z) { return esc(z).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>'); }
+function zinForm(z) { const m = z.match(/\*\*(.+?)\*\*/); return m ? m[1] : ''; }
+
+/* ---------- SPRAAK ---------- */
+let nlVoice = null;
+const canSpeak = 'speechSynthesis' in window;
+function pickVoice() {
+  if (!canSpeak) return;
+  const v = speechSynthesis.getVoices();
+  nlVoice = v.find(x => /^nl[-_]NL/i.test(x.lang)) || v.find(x => /^nl/i.test(x.lang)) || null;
+}
+if (canSpeak) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+function utter(text, slow) {
+  const u = new SpeechSynthesisUtterance(spoken(text));
+  u.lang = 'nl-NL';
+  if (nlVoice) u.voice = nlVoice;
+  u.rate = slow ? 0.6 : 0.85;
+  return u;
+}
+// meerdere stukken na elkaar voorlezen (bijv. woord en daarna de mini-zin)
+function say(parts, slow) {
+  if (!canSpeak) return;
+  speechSynthesis.cancel();
+  (Array.isArray(parts) ? parts : [parts]).forEach(t => speechSynthesis.speak(utter(t, slow)));
+}
+
+/* ---------- STATUS ---------- */
+let taak = 'all', tab = 'woorden';
+let Q = [], qi = 0, score = 0, wrongs = [];
+
+function pool() { return W.filter(x => taak === 'all' || x.t === taak); }
+
+function buildControls() {
+  const tk = document.getElementById('taken');
+  TAKEN.forEach(([v, label]) => {
+    const b = document.createElement('button');
+    b.className = 'pill' + (v === taak ? ' active' : '');
+    b.textContent = label;
+    b.onclick = () => { taak = v; tk.querySelectorAll('.pill').forEach(x => x.classList.remove('active')); b.classList.add('active'); openTab(tab); };
+    tk.appendChild(b);
+  });
+  const tb = document.getElementById('tabs');
+  TABS.forEach(([id, ic, lb]) => {
+    const b = document.createElement('button');
+    b.className = 'tab' + (id === tab ? ' active' : '');
+    b.dataset.id = id;
+    b.innerHTML = '<span class="ic">' + ic + '</span><span class="lb">' + lb + '</span>';
+    b.onclick = () => openTab(id);
+    tb.appendChild(b);
+  });
+}
+
+const INTRO = {
+  luister: ['🎧 Luisteren', 'Luister. Welk woord hoor je?'],
+  dehet:   ['🔤 De of het?', 'Is het <b>de</b> of <b>het</b>?'],
+  sorteer: ['🧺 Sorteren', 'Bij welke groep hoort het woord?'],
+  kies:    ['✏️ Kies het woord', 'Lees de zin of kijk naar het plaatje. Welk woord past?']
+};
+
+function openTab(id) {
+  tab = id;
+  document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.id === id));
+  if (canSpeak) speechSynthesis.cancel();
+  if (id === 'woorden') return renderWoorden();
+  const p = document.getElementById('panel');
+  const [t, how] = INTRO[id];
+  const n = buildQuestions(id).length;
+  p.innerHTML = '<h2>' + t + '</h2><p class="how">' + how + '</p>' +
+    '<div class="warn" id="warn"></div>' +
+    (n ? '<div class="next-row"><button class="btn start" id="go">▶ Start (' + n + ')</button></div>'
+       : '<p class="how">Hier zijn geen vragen. Kies een andere taak.</p>');
+  checkVoice();
+  const go = document.getElementById('go');
+  if (go) go.onclick = () => startQuiz(buildQuestions(id));
+}
+
+function checkVoice() {
+  const w = document.getElementById('warn');
+  if (!w) return;
+  setTimeout(() => {
+    pickVoice();
+    if (!canSpeak) { w.textContent = 'Deze browser kan niet voorlezen. Probeer een andere browser.'; w.style.display = 'block'; }
+    else if (!nlVoice) { w.textContent = 'Tip: er is geen Nederlandse stem gevonden. Zet in de instellingen van je telefoon of computer de spraak op Nederlands.'; w.style.display = 'block'; }
+  }, 800);
+}
+
+/* ---------- WOORDENLIJST ---------- */
+function renderWoorden() {
+  const p = document.getElementById('panel');
+  const groups = taak === 'all' ? [1,2,3,4] : [taak];
+  let html = '<h2>📖 Woorden</h2><p class="how">Klik op een woord. Luister en zeg het na.</p><div class="warn" id="warn"></div>';
+  groups.forEach(g => {
+    const list = W.filter(x => x.t === g);
+    html += '<div class="wl-head">Taak ' + g + ' · ' + esc(TITELS[g]) + ' · ' + list.length + '</div>';
+    html += '<div class="wl">' + list.map(x => {
+      const i = W.indexOf(x);
+      return '<div class="wcard' + (x.z ? ' has-zin' : '') + '" data-i="' + i + '"><span class="we">' + (x.e || '') + '</span>' +
+        '<span class="ww">' + (x.a ? '<small>' + x.a + '</small> ' : '') + esc(x.w) +
+        (x.z ? '<span class="wz">' + zinHtml(x.z) + '</span>' : '') + '</span><span class="sp">🔊</span></div>';
+    }).join('') + '</div>';
+  });
+  p.innerHTML = html;
+  p.querySelectorAll('.wcard').forEach(c => c.onclick = () => {
+    const x = W[+c.dataset.i];
+    say(x.z ? [full(x), zinPlain(x.z)] : full(x));
+  });
+  checkVoice();
+}
+
+/* ---------- VRAGEN MAKEN ---------- */
+// foute keuzes bij een plaatje: hetzelfde soort woord (naamwoord, werkwoord of ander woord),
+// maar uit een andere groep en met een ander plaatje, zodat de betekenis duidelijk anders is
+function soort(y) { return y.a ? 'n' : (y.g === 'doe' ? 'v' : 'o'); }
+function pictureDistractors(x) {
+  const ok = y => y !== x && y.e && !y.z && y.g !== x.g && y.e !== x.e;
+  const same = y => ok(y) && soort(y) === soort(x);
+  let cand = shuffle(pool().filter(same));
+  if (cand.length < 3) cand = cand.concat(shuffle(W.filter(y => same(y) && !cand.includes(y))));
+  if (cand.length < 3) cand = cand.concat(shuffle(pool().filter(y => ok(y) && !cand.includes(y))));
+  if (cand.length < 3) cand = cand.concat(shuffle(W.filter(y => ok(y) && !cand.includes(y))));
+  return cand.slice(0, 3);
+}
+
+function buildQuestions(mode) {
+  const P = pool();
+  if (mode === 'luister') {
+    return shuffle(P).slice(0, 10).map(x => {
+      const ok = y => y !== x && spoken(y.w) !== spoken(x.w);
+      let others = P.filter(ok);
+      if (others.length < 3) others = W.filter(ok);
+      // geen twee keuzes die hetzelfde klinken (bijv. je (jij) en je (jouw))
+      const pick = [];
+      for (const y of shuffle(others)) { if (pick.length < 3 && !pick.some(z => spoken(z.w) === spoken(y.w))) pick.push(y); }
+      return { mode, x, opts: shuffleOpts([x, ...pick]) };
+    });
+  }
+  if (mode === 'dehet') return shuffle(P.filter(x => x.a)).slice(0, 12).map(x => ({ mode, x }));
+  if (mode === 'sorteer') return shuffle(P.filter(x => x.c)).slice(0, 12).map(x => ({ mode, x }));
+  if (mode === 'kies') {
+    return shuffle(P.filter(x => x.z || x.e)).slice(0, 12).map(x => {
+      if (x.z) {
+        const ans = zinForm(x.z).toLowerCase();
+        return { mode, x, kind: 'zin', ans, opts: shuffleOpts([ans, ...x.d]) };
+      }
+      const ans = full(x);
+      return { mode, x, kind: 'plaatje', ans, opts: shuffleOpts([ans, ...pictureDistractors(x).map(full)]) };
+    });
+  }
+  return [];
+}
+
+/* ---------- QUIZ ---------- */
+function startQuiz(list) {
+  Q = list.map(q => q.opts ? { ...q, opts: shuffleOpts(q.opts) } : { ...q });
+  qi = 0; score = 0; wrongs = [];
+  renderQ();
+}
+
+function head() {
+  return '<div class="progress"><div>Vraag <span>' + (qi + 1) + '</span> / ' + Q.length + '</div><div>✓ <span>' + score + '</span></div></div>' +
+         '<div class="bar"><div style="width:' + (qi / Q.length * 100) + '%"></div></div>';
+}
+
+function renderQ() {
+  if (qi >= Q.length) return showResult();
+  const q = Q[qi], p = document.getElementById('panel');
+  let html = head();
+  if (q.mode === 'luister') {
+    html += '<div class="listen-row"><button class="speak" id="sp">🔊 Luister</button><button class="speak slow" id="spS">🐢 Langzaam</button></div>' +
+            '<div class="opts">' + q.opts.map((o, i) => '<button class="opt" data-i="' + i + '"><span class="oe">' + (o.e || '') + '</span>' + esc(o.w) + '</button>').join('') + '</div>';
+  } else if (q.mode === 'dehet') {
+    html += '<div class="big-emoji">' + (q.x.e || '') + '</div><div class="big-word">… ' + esc(q.x.w) + '</div>' +
+            '<div class="opts"><button class="opt big" data-v="de">de</button><button class="opt big" data-v="het">het</button></div>';
+  } else if (q.mode === 'sorteer') {
+    html += '<div class="big-emoji">' + (q.x.e || '') + '</div><div class="big-word">' + esc(full(q.x)) + '</div>' +
+            '<div class="listen-row"><button class="speak small" id="sp">🔊</button></div>' +
+            '<div class="opts three">' + Object.entries(CATS).map(([k, v]) => '<button class="opt" data-v="' + k + '">' + v + '</button>').join('') + '</div>';
+  } else if (q.mode === 'kies') {
+    if (q.kind === 'zin') {
+      html += '<div class="sentence" id="zin">' + esc(zinPlain(q.x.z.replace(/\*\*(.+?)\*\*/, '§'))).replace('§', '<span class="gap">&nbsp;</span>') + '</div>';
+    } else {
+      html += '<div class="big-emoji">' + q.x.e + '</div>';
+    }
+    html += '<div class="opts">' + q.opts.map(o => '<button class="opt" data-v="' + esc(o) + '">' + esc(o) + '</button>').join('') + '</div>';
+  }
+  html += '<div class="fb" id="fb"></div><div class="tip" id="tip"></div><div class="next-row" id="nx"></div>';
+  p.innerHTML = html;
+
+  if (q.mode === 'luister') {
+    document.getElementById('sp').onclick = () => say(full(q.x));
+    document.getElementById('spS').onclick = () => say(full(q.x), true);
+    say(full(q.x));
+    p.querySelectorAll('.opt').forEach(b => b.onclick = () => answer(b, q.opts[+b.dataset.i] === q.x, q.x.w));
+  } else if (q.mode === 'dehet') {
+    p.querySelectorAll('.opt').forEach(b => b.onclick = () => answer(b, b.dataset.v === q.x.a, q.x.a));
+  } else if (q.mode === 'sorteer') {
+    document.getElementById('sp').onclick = () => say(full(q.x));
+    p.querySelectorAll('.opt').forEach(b => b.onclick = () => answer(b, b.dataset.v === q.x.c, q.x.c));
+  } else if (q.mode === 'kies') {
+    p.querySelectorAll('.opt').forEach(b => b.onclick = () => answer(b, b.dataset.v === q.ans, q.ans));
+  }
+}
+
+function answer(btn, ok, correct) {
+  const q = Q[qi], p = document.getElementById('panel');
+  p.querySelectorAll('.opt').forEach(b => {
+    b.disabled = true;
+    const val = q.mode === 'luister' ? q.opts[+b.dataset.i].w : b.dataset.v;
+    if (val === correct) b.classList.add('ok');
+  });
+  if (!ok) btn.classList.add('bad');
+  if (ok) score++; else wrongs.push(q);
+
+  const fb = document.getElementById('fb');
+  fb.className = 'fb ' + (ok ? 'ok' : 'bad');
+  if (q.mode === 'luister') {
+    fb.textContent = ok ? '✓ Goed! ' + full(q.x) : '✗ ' + full(q.x);
+  } else if (q.mode === 'dehet') {
+    fb.textContent = (ok ? '✓ Goed! ' : '✗ ') + full(q.x);
+    say(full(q.x));
+  } else if (q.mode === 'sorteer') {
+    fb.textContent = ok ? '✓ Goed!' : '✗ ' + CATS[q.x.c];
+    say(full(q.x));
+  } else if (q.mode === 'kies') {
+    if (q.kind === 'zin') {
+      const form = zinForm(q.x.z);
+      document.querySelector('#zin .gap').textContent = form;
+      fb.textContent = ok ? '✓ Goed!' : '✗ ' + form;
+      say(zinPlain(q.x.z));
+    } else {
+      fb.textContent = ok ? '✓ Goed! ' + q.ans : '✗ ' + q.ans;
+      say(q.ans);
+    }
+  }
+  document.getElementById('nx').innerHTML = '<button class="btn" id="nb">' + (qi < Q.length - 1 ? 'Volgende →' : 'Klaar ✓') + '</button>';
+  document.getElementById('nb').onclick = () => { qi++; renderQ(); };
+  document.getElementById('nb').focus();
+}
+
+function showResult() {
+  const p = document.getElementById('panel');
+  const pct = Q.length ? score / Q.length : 0;
+  const msg = pct === 1 ? 'Super! 🎉' : pct >= 0.8 ? 'Heel goed! 👍' : pct >= 0.5 ? 'Goed bezig! 💪' : 'Kijk bij 📖 Woorden. Probeer het opnieuw. 💪';
+  p.innerHTML = '<div class="result"><div class="avatar-box av">🏫</div>' +
+    '<div class="score">' + score + '/' + Q.length + '</div><div class="msg">' + msg + '</div><div class="btns">' +
+    (wrongs.length ? '<button class="btn alt" id="rw">✗ Oefen de fouten (' + wrongs.length + ')</button>' : '') +
+    '<button class="btn" id="rn">↺ Nieuwe ronde</button></div></div>';
+  setAvatar();
+  if (wrongs.length) document.getElementById('rw').onclick = () => startQuiz(wrongs);
+  document.getElementById('rn').onclick = () => startQuiz(buildQuestions(tab));
+}
+
+/* ---------- AVATAR ----------
+   De avatar wordt uit overzicht_link.html (zelfde map op GitHub) gehaald.
+   Lukt dat niet (bijv. bestand lokaal geopend), dan blijft het emoji-plaatje staan. */
+let avatarSrc = null;
+function setAvatar() {
+  if (!avatarSrc) return;
+  document.querySelectorAll('.av').forEach(el => { if (!el.querySelector('img')) el.innerHTML = '<img src="' + avatarSrc + '" alt="docent">'; });
+}
+fetch('overzicht_link.html')
+  .then(r => r.ok ? r.text() : Promise.reject())
+  .then(h => { const m = h.match(/data:image\/[a-z]+;base64,[A-Za-z0-9+\/=]+/); if (m) { avatarSrc = m[0]; setAvatar(); } })
+  .catch(() => {});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') { const nb = document.getElementById('nb'); if (nb) { e.preventDefault(); nb.click(); } }
+});
+
+buildControls();
+openTab('woorden');
+</script>
+</body>
+</html>
